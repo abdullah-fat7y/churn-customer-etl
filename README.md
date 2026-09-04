@@ -2,6 +2,10 @@
 
 A Hadoop/Spark/NiFi/Hive ETL project that moves customer data from source files through Bronze, Silver, and Gold layers for churn analysis and BI.
 
+## Project Pipeline
+
+![Project Pipeline](Documentation/5a90da54-8ee4-4647-8ba9-1414e30c3bda.jfif)
+
 ## 1. Project Architecture
 
 ```text
