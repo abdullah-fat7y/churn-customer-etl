@@ -506,9 +506,16 @@ clv_agg = (
     usage
     .groupBy("customer_id")
     .agg(
-        F.sum(
-            "monthly_balance"
-        ).alias("CLV_LTV")
+        F.avg("monthly_balance").alias("avg_monthly_balance"),
+        F.countDistinct("usage_month").alias("active_months")
+    )
+    .withColumn(
+        "CLV_LTV",
+        F.col("avg_monthly_balance") * F.col("active_months")
+    )
+    .select(
+        "customer_id",
+        "CLV_LTV"
     )
 )
 
@@ -516,7 +523,6 @@ show_debug(
     clv_agg,
     "CLV / LTV"
 )
-
 
 # ------------------------------------------------------------
 # Average ticket resolution time
