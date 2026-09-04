@@ -691,81 +691,7 @@ DESCRIBE monthly_churn_rate_gold;
 
 The Gold surrogate keys should be BIGINT.
 
-## 22. Git Usage
-
-Before the first commit:
-
-```bash
-git init
-git add .
-git status
-git commit -m "Initial churn ETL pipeline"
-```
-
-Set your remote:
-
-```bash
-git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
-```
-
-Push:
-
-```bash
-git branch -M main
-git push -u origin main
-```
-
-Never commit passwords, tokens, SSH keys, private keys, or production credentials.
-
-## 23. Recommended Repository Policy
-
-Commit:
-
-```text
-Python scripts
-Shell scripts
-Hive SQL
-NiFi flow export
-Documentation
-Sample/synthetic source data
-Configuration templates
-```
-
-Do not normally commit:
-
-```text
-HDFS Parquet output
-Spark staging data
-Spark logs
-Temporary files
-Python __pycache__
-Credentials
-Passwords
-API keys
-```
-
-## 24. Project Completion Checklist
-
-```text
-[ ] Source files available
-[ ] Hadoop/HDFS running
-[ ] MariaDB running
-[ ] Customers loaded into MariaDB
-[ ] Customers imported by Sqoop
-[ ] NiFi ingestion completed
-[ ] Bronze verified
-[ ] Silver pipeline completed
-[ ] Silver reconciliation = 0 unaccounted
-[ ] Gold pipeline completed
-[ ] GOLD LAYER STATUS: PASS
-[ ] Hive external tables created
-[ ] Hive row counts verified
-[ ] Hive FK validation = 0 orphan rows
-[ ] Business queries executed
-[ ] Repository documented
-```
-
-## 25. Final Data Flow
+## 22. Final Data Flow
 
 ```text
 Customers.csv
@@ -826,5 +752,3 @@ Negative measures
 Invalid acceptance rates
 Invalid churn rates
 ```
-
-The Silver pipeline also completed successfully with zero unaccounted records for Customers, Tickets, Offers, and Usage.
